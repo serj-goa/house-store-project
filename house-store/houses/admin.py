@@ -5,4 +5,4 @@ from houses.models import House
 
 @a.register(House)
 class HouseAdmin(a.ModelAdmin):
-    pass
+    list_display = 'name', 'price'
