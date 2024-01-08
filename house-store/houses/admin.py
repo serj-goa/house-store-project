@@ -1,3 +1,8 @@
-from django.contrib import admin
+from django.contrib import admin as a
 
-# Register your models here.
+from houses.models import House
+
+
+@a.register(House)
+class HouseAdmin(a.ModelAdmin):
+    pass
