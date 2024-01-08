@@ -9,3 +9,8 @@ class House(m.Model):
     class Meta:
         verbose_name = 'Дом'
         verbose_name_plural = 'Дома'
+
+        ordering = 'name', 'price'
+
+    def __str__(self):
+        return self.name
