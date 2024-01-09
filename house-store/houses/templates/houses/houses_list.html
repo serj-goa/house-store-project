@@ -1,3 +1,4 @@
+{% load thumbnail %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +14,9 @@
             <div>{{ house.price }}</div>
             <div>{{ house.description }}</div>
 
-            {% if house.photo %}
-                <img src="{{ house.photo.url }}" alt="House {{ house.name }}">
-            {% endif %}
+            {% thumbnail house.photo "325x200" crop="center" as im %}
+                <img src="{{ im.url }}" alt="House {{ house.name }}">
+            {% endthumbnail %}
         </div>
     {% endfor %}
 </body>
