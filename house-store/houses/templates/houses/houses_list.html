@@ -10,7 +10,7 @@
 
     {% for house in houses %}
         <div>
-            <h2>{{ house.name }}</h2>
+            <h2><a href="{% url 'house_detail' house_id=house.id %}">{{ house.name }}</a></h2>
             <div>{{ house.price }}</div>
             <div>{{ house.description }}</div>
 
