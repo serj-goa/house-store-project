@@ -12,6 +12,10 @@
             <h2>{{ house.name }}</h2>
             <div>{{ house.price }}</div>
             <div>{{ house.description }}</div>
+
+            {% if house.photo %}
+                <img src="{{ house.photo.url }}" alt="House {{ house.name }}">
+            {% endif %}
         </div>
     {% endfor %}
 </body>
