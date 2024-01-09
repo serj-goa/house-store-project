@@ -18,10 +18,11 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 
-from houses.views import houses_list
+from houses.views import house_detail, houses_list
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', houses_list, name='houses_list'),
+    path('<int:house_id>/', house_detail, name='house_detail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
