@@ -139,5 +139,5 @@ dmypy.json
 .Ds_Store
 
 # media
-/media
-/cache
+*/media
+*/cache
