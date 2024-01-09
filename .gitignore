@@ -137,3 +137,7 @@ dmypy.json
 
 # mac
 .Ds_Store
+
+# media
+/media
+/cache
