@@ -17,4 +17,12 @@
             <img src="{{ im.url }}" alt="House {{ house.name }}">
         {% endthumbnail %}
     </div>
+
+    <h2>Order</h2>
+
+    <form method="post">
+        {{ form.as_p }}
+
+        <button type="submit">Send order</button>
+    </form>
 {% endblock %}
