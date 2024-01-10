@@ -5,4 +5,5 @@ from houses.models import House
 
 @a.register(House)
 class HouseAdmin(a.ModelAdmin):
-    list_display = 'name', 'price'
+    list_display = 'name', 'price', 'active'
+    list_filter = 'active', 
