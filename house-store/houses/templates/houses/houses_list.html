@@ -1,11 +1,7 @@
+{% extends "index.html" %}
 {% load thumbnail %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>House by the sea</title>
-</head>
-<body>
+
+{% block body %}
     <h1>Houses list</h1>
 
     {% for house in houses %}
@@ -19,5 +15,4 @@
             {% endthumbnail %}
         </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
