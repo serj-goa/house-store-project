@@ -2,6 +2,7 @@ from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 
+from houses.forms import HousesFilterForm
 from houses.models import House
 from orders.forms import OrderForm
 
@@ -29,4 +30,19 @@ def house_detail(request: HttpRequest, house_id: int):
 
 def houses_list(request: HttpRequest):
     houses = House.objects.all()
-    return render(request, 'houses/houses_list.html', {'houses': houses})
+    form = HousesFilterForm(request.GET)
+
+    if form.is_valid():
+        if form.cleaned_data['min_price']:
+            houses = houses.filter(price__gte=form.cleaned_data['min_price'])
+            
+        if form.cleaned_data['max_price']:
+            houses = houses.filter(price__lte=form.cleaned_data['max_price'])
+
+    context = {
+        'houses': houses,
+        'form': form,
+    }
+    template = 'houses/houses_list.html'
+
+    return render(request, template_name=template, context=context)

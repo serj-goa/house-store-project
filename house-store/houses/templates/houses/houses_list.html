@@ -4,6 +4,12 @@
 {% block body %}
     <h1>Houses list</h1>
 
+    <form method="get">
+        {{ form.as_p }}
+
+        <button type="submit">Search</button>
+    </form>
+
     {% for house in houses %}
         <div>
             <h2><a href="{% url 'house_detail' house_id=house.id %}">{{ house.name }}</a></h2>
