@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -38,6 +39,11 @@ def houses_list(request: HttpRequest):
 
         if form.cleaned_data['max_price']:
             houses = houses.filter(price__lte=form.cleaned_data['max_price'])
+
+        if form.cleaned_data['query']:
+            houses = houses.filter(
+                Q(description__icontains=form.cleaned_data['query']) | Q(name__icontains=form.cleaned_data['query'])
+            )
 
     context = {
         'houses': houses,
