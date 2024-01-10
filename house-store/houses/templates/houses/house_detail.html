@@ -21,6 +21,8 @@
     <h2>Order</h2>
 
     <form method="post">
+        {% csrf_token %}
+
         {{ form.as_p }}
 
         <button type="submit">Send order</button>
