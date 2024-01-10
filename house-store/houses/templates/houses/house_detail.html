@@ -1,34 +1,37 @@
 {% extends "index.html" %}
-{% load thumbnail %}
+{% load thumbnail humanize %}
 
 {% block title %}
     {{ house.name }}
 {% endblock %}
 
 {% block body %}
-    <a href="{% url 'houses_list' %}">Home</a>
+    <div class="house-detail">
+        <a href="{% url 'houses_list' %}">Homepage</a>
 
-    <div>
-        <h1>{{ house.name }}</h1>
-        <div>{{ house.price }}</div>
+        <h1 class="house-name">
+            {{ house.name }}
+            <span class="price">{{ house.price|intcomma }} &#x20bd</span>
+        </h1>
+        <div></div>
         <div>{{ house.description }}</div>
 
         {% thumbnail house.photo "650x400" crop="center" as im %}
             <img src="{{ im.url }}" alt="House {{ house.name }}">
         {% endthumbnail %}
+
+        <h2>Order</h2>
+
+        {% if sent %}
+            <p>Thank you! Your order is accepted.</p>
+        {% endif %}
+
+        <form method="post" class="order-form">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Send order</button>
+        </form>
     </div>
-
-    <h2>Order</h2>
-
-    {% if sent %}
-        <p>Thank you! Your order is accepted.</p>
-    {% endif %}
-
-    <form method="post">
-        {% csrf_token %}
-
-        {{ form.as_p }}
-
-        <button type="submit">Send order</button>
-    </form>
 {% endblock %}

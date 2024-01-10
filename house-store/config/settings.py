@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
 
     'sorl.thumbnail',  # correct photo size
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
