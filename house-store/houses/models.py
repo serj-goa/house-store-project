@@ -12,7 +12,7 @@ class House(m.Model):
         verbose_name = 'Дом'
         verbose_name_plural = 'Дома'
 
-        ordering = 'name', 'price'
+        ordering = '-active', 'name', 'price'
 
     def __str__(self):
         return self.name

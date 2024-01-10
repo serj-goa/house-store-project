@@ -45,6 +45,9 @@ def houses_list(request: HttpRequest):
                 Q(description__icontains=form.cleaned_data['query']) | Q(name__icontains=form.cleaned_data['query'])
             )
 
+        if form.cleaned_data['ordering']:
+            houses = houses.order_by(form.cleaned_data['ordering'])
+
     context = {
         'houses': houses,
         'form': form,

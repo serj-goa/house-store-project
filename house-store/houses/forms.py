@@ -6,3 +6,12 @@ class HousesFilterForm(f.Form):
     max_price = f.IntegerField(label='до', required=False)
 
     query = f.CharField(label='Описание', required=False)
+    ordering = f.ChoiceField(
+        label='Сортировка',
+        required=False,
+        choices=(
+            ('name', 'по алфавиту'),
+            ('price', 'сначала дешевые'),
+            ('-price', 'сначала дорогие'),
+        )
+    )
