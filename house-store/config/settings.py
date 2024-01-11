@@ -144,3 +144,9 @@ CACHES = {
         'LOCATION': os.path.join(BASE_DIR / 'cache'),
     }
 }
+
+try:
+    from config.local_settings import *
+
+except ImportError:
+    pass
