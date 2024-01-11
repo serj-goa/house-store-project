@@ -3,12 +3,12 @@
 {% load humanize %}
 
 {% block body %}
-    <h1>Houses list</h1>
-
     <form method="get" class="search-form">
         {{ form.as_p }}
 
-        <button type="submit">Search</button>
+        <p>
+            <button type="submit">Search</button>
+        </p>
     </form>
 
     <ul class="houses">
