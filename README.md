@@ -1,7 +1,16 @@
 # House store project
  
 Displays a list of real estate objects.
+
+<p align="center">
+      <img src="https://github.com/serj-goa/todolist_project/blob/main/site_example/homepage.png" alt="Homepage" width="200">
+</p>
+
 Provides the opportunity to select an object of interest and leave a request for it.
+
+<p align="center">
+      <img src="https://github.com/serj-goa/todolist_project/blob/main/site_example/house_detail.png" alt="House detail" width="200">
+</p>
 
 ---
 
